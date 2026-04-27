@@ -7,6 +7,12 @@ You will be given a URL of an arxiv paper, for example:
 
 https://www.arxiv.org/abs/2601.07372
 
+The last part will be the {arxiv_id}. 
+
+### Part 0: Check if a summary already exists
+
+Check at ./.knowledge/summary_{arxiv_id}_.*.md. If yes, you may exit (and inform me where to find the file), unless explicitly instructed to update the knowledge. 
+
 ### Part 1: Normalize the URL
 
 The goal is to fetch the TeX Source of the paper (not the PDF!), the URL always looks like this:
@@ -35,6 +41,6 @@ Once you've found the entrypoint, Read the contents and then recurse through all
 
 ### Part 6: Report
 
-Once you've read the paper, produce a summary of the paper into a markdown file at `./knowledge/summary_{tag}.md`. Notice that 1) use the local knowledge directory here (it's easier for me to open and reference here), not in `~/.cache`, and 2) generate some reasonable `tag` like e.g. `conditional_memory` or whatever seems appropriate given the paper. Probably make sure that the tag doesn't exist yet so you're not overwriting files.
+Once you've read the paper, produce a summary of the paper into a markdown file at `./knowledge/summary_{arix_id}_{tag}.md`. Notice that 1) use the local knowledge directory here (it's easier for me to open and reference here), not in `~/.cache`, and 2) generate some reasonable `tag` like e.g. `conditional_memory` or whatever seems appropriate given the paper. Probably make sure that the tag doesn't exist yet so you're not overwriting files. The tag should be formatted like this: {firstAuthor}{year}_{2-4 word summary, keep short}.
 
 As for the summary itself, remember that you're processing this paper within the context of the diffusion-prune repository, so most often we will be interested in how to apply the paper and its lessons to the diffusion-prune project. Therefore, you should feel free to "remind yourself" of the related code by reading the relevant parts, and then explicitly make the connection of how this paper might relate or what are things we might be inspired about or try.
